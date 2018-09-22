@@ -8,26 +8,6 @@
 
 import Foundation
 
-//final class Amount {
-//
-//    let value: Float
-//    let currencyIso: String
-//
-//    init(value: Float, currencyIso: String) {
-//        self.value = value
-//        self.currencyIso = currencyIso
-//    }
-//}
-//
-//extension Amount: Decodable {
-//    static func decode(_ j: Any) throws -> Amount {
-//        return try Amount(
-//            value: j => "value",
-//            currencyIso: j => "currency_iso"
-//            )
-//    }
-//}
-
 struct Amount: Decodable {
     let value: Float
     let currencyIso: String
