@@ -31,9 +31,11 @@ final class TransactionTableViewCell: UITableViewCell {
         
         self.contentView.addSubview(self.iconImageView)
         self.contentView.addSubview(self.infoStackView)
+        self.contentView.addSubview(self.amountLabel)
         
         self.infoStackView.translatesAutoresizingMaskIntoConstraints = false
         self.iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.amountLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let marginGuide = self.contentView.layoutMarginsGuide
         
@@ -44,9 +46,14 @@ final class TransactionTableViewCell: UITableViewCell {
         self.iconImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
         
         self.infoStackView.leadingAnchor.constraint(equalTo: self.iconImageView.trailingAnchor, constant: TransactionTableViewCell.defaultMargin).isActive = true
-        self.infoStackView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        self.infoStackView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        self.infoStackView.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: TransactionTableViewCell.defaultMargin).isActive = true
+        self.infoStackView.trailingAnchor.constraint(equalTo: amountLabel.leadingAnchor, constant: TransactionTableViewCell.defaultMargin).isActive = true
         self.infoStackView.bottomAnchor.constraint(lessThanOrEqualTo: marginGuide.bottomAnchor, constant: TransactionTableViewCell.defaultMargin).isActive = true
+        
+        self.amountLabel.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true
+        self.amountLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        
+        
     }
     
     override func prepareForReuse() {
@@ -56,6 +63,8 @@ final class TransactionTableViewCell: UITableViewCell {
         self.iconImageView.image = nil
         self.titleLabel.text = nil
         self.subtitleLabel.text = nil
+        self.categoryLabel.attributedText = nil
+        self.amountLabel.text = nil
     }
     
     // MARK: Getters
@@ -65,6 +74,7 @@ final class TransactionTableViewCell: UITableViewCell {
         let infoStackView = UIStackView(arrangedSubviews: [
             self.titleLabel,
             self.subtitleLabel,
+            self.categoryLabel
             ])
         
         infoStackView.spacing = 5
@@ -101,7 +111,26 @@ final class TransactionTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let categoryLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let amountLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.black
+        label.numberOfLines = 2
+        return label
+    }()
+    
     // MARK: Setters
+    
+    func setIconWithString(_ urlString: String) {
+        self.iconImageView.imageFromServerURL(urlString, placeHolder: UIImage(named: "placeholder"))
+    }
     
     func setTitle(_ title: String?) {
         self.titleLabel.text = title
@@ -111,8 +140,12 @@ final class TransactionTableViewCell: UITableViewCell {
         self.subtitleLabel.text = subtitle
     }
     
-    func setIconWithString(_ urlString: String) {
-        self.iconImageView.imageFromServerURL(urlString, placeHolder: UIImage(named: "placeholder"))
+    func setCategory(_ category: NSMutableAttributedString?) {
+        self.categoryLabel.attributedText = category
+    }
+    
+    func setAmount(_ amount: String?) {
+        self.amountLabel.text = amount
     }
 }
 

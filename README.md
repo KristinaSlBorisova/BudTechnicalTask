@@ -2,16 +2,19 @@
 
 # Bud Technical Task
 
-Project that implements a simple transaction list applications presented in UITableView with image title and subtitle.
+Project that implements a simple transaction list applications presented in UITableView with image, title, subtitle, amout and category.
 
 # Development
+
+## Note
+I have changed the url from http://www.mocky.io/v2/5b33bdb43200008f0ad1e256 to --->  https://www.mocky.io/v2/5b33bdb43200008f0ad1e256 as it's supported. Alternately I could have added the url in the Info.plist file under the key NSExceptionAllowsInsecureHTTPLoads. 
 
 ## Coordinators
 The application navigation is handled by coordinator. 
 
 ## Categories
 
-UIImageView extention that downloads and cash an image from URL, or cancel the request. 
+UIImageView extension that downloads and cash an image from URL, or cancel the request. 
 
 ## API
  The API layer is presented of two classes - Server.swift (containing the base url) and TransactionAPIManager.swift (making the url request and handling the data). 

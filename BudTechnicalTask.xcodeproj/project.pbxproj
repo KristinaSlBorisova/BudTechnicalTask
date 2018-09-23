@@ -13,6 +13,7 @@
 		15391CC42156D37C008D217E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15391CC32156D37C008D217E /* Localizable.strings */; };
 		15391CC62156D505008D217E /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15391CC52156D505008D217E /* Server.swift */; };
 		15391CC921577F07008D217E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15391CC821577F07008D217E /* AppCoordinator.swift */; };
+		15391CCE2157E8C5008D217E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15391CCD2157E8C4008D217E /* Helpers.swift */; };
 		15D4A6732154F166005DFBEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D4A6722154F166005DFBEE /* AppDelegate.swift */; };
 		15D4A67A2154F168005DFBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D4A6792154F168005DFBEE /* Assets.xcassets */; };
 		15D4A67D2154F168005DFBEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D4A67B2154F168005DFBEE /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 		15391CC32156D37C008D217E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		15391CC52156D505008D217E /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		15391CC821577F07008D217E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		15391CCD2157E8C4008D217E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		15D4A66F2154F166005DFBEE /* BudTechnicalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudTechnicalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D4A6722154F166005DFBEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D4A6792154F168005DFBEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		15391CCC2157E8AB008D217E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				15391CCD2157E8C4008D217E /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		15D4A6662154F166005DFBEE = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		15D4A6712154F166005DFBEE /* BudTechnicalTask */ = {
 			isa = PBXGroup;
 			children = (
+				15391CCC2157E8AB008D217E /* Helpers */,
 				15391CCB2157C92B008D217E /* ViewControllers */,
 				15391CCA2157C91B008D217E /* ViewModels */,
 				15391CC721577EEB008D217E /* Coordinators */,
@@ -451,6 +462,7 @@
 				15D4A6A92155246A005DFBEE /* TransactionsListViewModel.swift in Sources */,
 				15391CC021568680008D217E /* UIImageView+Download.swift in Sources */,
 				15D4A69A2154FC56005DFBEE /* Product.swift in Sources */,
+				15391CCE2157E8C5008D217E /* Helpers.swift in Sources */,
 				15D4A6732154F166005DFBEE /* AppDelegate.swift in Sources */,
 				15391CBD215674AA008D217E /* TransactionsAPIManager.swift in Sources */,
 				15D4A6A52155162E005DFBEE /* TransactionTableViewCell.swift in Sources */,

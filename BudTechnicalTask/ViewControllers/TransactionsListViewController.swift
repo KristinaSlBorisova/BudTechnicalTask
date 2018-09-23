@@ -85,6 +85,8 @@ final class ТransactionsListViewController: UIViewController, TransactionsListV
         cell.setTitle(transaction.product.title)
         cell.setSubtitle(transaction.description)
         cell.setIconWithString(transaction.product.iconURLString)
+        cell.setAmount(Helpers.generateStringForAmount(transaction.amount))
+        cell.setCategory(Helpers.generateAttributedTitleForTransactionCategory(transaction.category))
         
         return cell
     }

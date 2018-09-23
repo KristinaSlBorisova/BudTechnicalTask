@@ -1,12 +1,17 @@
 /* 
-  Localizable.strings
-  BudTechnicalTask
-
-  Created by Kristina Nenkova on 22/09/2018.
-  Copyright © 2018 Kristina Nenkova. All rights reserved.
-*/
+ Localizable.strings
+ BudTechnicalTask
+ 
+ Created by Kristina Nenkova on 22/09/2018.
+ Copyright © 2018 Kristina Nenkova. All rights reserved.
+ */
 
 "FoundationError" = "Error";
 "FoundationRetry" = "Retry";
 "FoundationCancel" = "Cancel";
 "TransactionContollerNavigationTitle" = "My transactions";
+"MusicCategotyTitle" = "Music";
+"BillsCategoryTitle" = "Bills";
+"RestaurantsCategoryTitle" = "Restaurants";
+"FoodCategoryTitle" = "Food";
+"GroceriesCategoryTitle" = "Groceries";
