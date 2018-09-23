@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionTableViewCell: UITableViewCell {
+final class TransactionTableViewCell: UITableViewCell {
     
     private static let imageSize = CGSize.init(width: 80, height: 80)
     private static let defaultMargin: CGFloat = 16.0

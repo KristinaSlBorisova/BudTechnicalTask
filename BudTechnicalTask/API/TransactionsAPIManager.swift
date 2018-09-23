@@ -12,7 +12,7 @@ protocol TransactionManager {
     func readAll(completion: @escaping ([Transaction]?, Error?) -> Void)
 }
 
-class TransactionsAPIManager: TransactionManager {
+final class TransactionsAPIManager: TransactionManager {
     
     let server: Server
     
@@ -21,7 +21,7 @@ class TransactionsAPIManager: TransactionManager {
     }
     
     func readAll(completion: @escaping ([Transaction]?, Error?) -> Void) {
-
+        
         let task = URLSession.shared.dataTask(with: self.server.baseURL) { (data, response, error) in
             
             if let error = error {

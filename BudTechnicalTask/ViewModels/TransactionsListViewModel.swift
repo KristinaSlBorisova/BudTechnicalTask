@@ -16,14 +16,15 @@ protocol TransactionsListViewModelDelegate: class {
 
 protocol TransactionsListViewModelProtocol {
     var delegate: TransactionsListViewModelDelegate? { get set }
-    var transactions: [Transaction] { get set }
+    var numberOfRows: Int { get }
     func fetchData()
+    func transactionAtIndex(_ index: Int) -> Transaction
 }
 
 final class TransactionsListViewModel: TransactionsListViewModelProtocol {
+ 
     var delegate: TransactionsListViewModelDelegate?
-    
-    var transactions: [Transaction] = []
+
     let apiManager: TransactionManager
     
     // MARK: - Initialization
@@ -34,12 +35,17 @@ final class TransactionsListViewModel: TransactionsListViewModelProtocol {
     
     // MARK: - TransactionsListViewModelProtocol
     
+    var transactions: [Transaction] = []
+    
+    var numberOfRows: Int {
+        return self.transactions.count
+    }
+    
     func fetchData() {
         self.delegate?.willStartFetchingData(viewModel: self)
         
-        self.delegate?.didFetchData(viewModel: self)
-        
-        self.apiManager.readAll() { transactionsResponse, error in
+        self.apiManager.readAll() { [weak self] transactionsResponse, error in
+            guard let `self` = self else { return }
             DispatchQueue.main.async {
                 if let error = error  {
                     self.delegate?.didFailWithError(viewModel: self, error: error)
@@ -49,5 +55,9 @@ final class TransactionsListViewModel: TransactionsListViewModelProtocol {
                 }
             }
         }
+    }
+    
+    func transactionAtIndex(_ index: Int) -> Transaction {
+        return self.transactions[index]
     }
 }

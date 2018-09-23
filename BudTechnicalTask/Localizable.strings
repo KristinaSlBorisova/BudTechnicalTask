@@ -9,3 +9,4 @@
 "FoundationError" = "Error";
 "FoundationRetry" = "Retry";
 "FoundationCancel" = "Cancel";
+"TransactionContollerNavigationTitle" = "My transactions";

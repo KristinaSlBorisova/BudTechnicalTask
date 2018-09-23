@@ -19,7 +19,7 @@ class TransactionsListViewModelTests: XCTestCase {
         var willFetchDataCalled = false
         var didFetchDataCalled = false
         var didFailWithErrorCalled = false
-
+        
         func willStartFetchingData(viewModel: TransactionsListViewModelProtocol) {
             self.willFetchDataCalled = true
         }
@@ -32,18 +32,18 @@ class TransactionsListViewModelTests: XCTestCase {
             self.didFailWithErrorCalled = true
         }
     }
-
+    
     override func setUp() {
         super.setUp()
     }
-
+    
     override func tearDown() {
         super.tearDown()
     }
-
+    
     func testFetchDataSuccess() {
         
-        let server = Server(baseURL: URL(string: "https://localhost")!)
+        let server = Server(baseURL: URL(string: "https://localhost/v2/5b33bdb43200008f0ad1e256")!)
         let apiManager: TransactionManager = { TransactionsAPIManager(server: server) }()
         let viewModel = TransactionsListViewModel(apiManager: apiManager)
         
@@ -60,7 +60,7 @@ class TransactionsListViewModelTests: XCTestCase {
         }
         
         stub(
-            http(.get, uri: "/v2/5b33bdb43200008f0ad1e256"),
+            http(.get, uri: "https://localhost/v2/5b33bdb43200008f0ad1e256"),
             jsonData(json)
         )
         
@@ -72,13 +72,13 @@ class TransactionsListViewModelTests: XCTestCase {
         expect(spyDelegate.didFetchDataCalled).toEventually(beTrue())
         expect(spyDelegate.didFailWithErrorCalled).toEventually(beFalse())
     }
-
+    
     func testFetchDataFail() {
         stub(
-            http(.get, uri: "/v2/5b33bdb43200008f0ad1e256"),
+            http(.get, uri: "https://localhost/v2/5b33bdb43200008f0ad1e256"),
             http(403)
         )
-        let server = Server(baseURL: URL(string: "https://localhost")!)
+        let server = Server(baseURL: URL(string: "https://localhost/v2/5b33bdb43200008f0ad1e256")!)
         let apiManager: TransactionManager = { TransactionsAPIManager(server: server) }()
         let viewModel = TransactionsListViewModel(apiManager: apiManager)
         
@@ -88,6 +88,6 @@ class TransactionsListViewModelTests: XCTestCase {
         
         expect(spyDelegate.willFetchDataCalled).to(beTrue())
         expect(spyDelegate.didFailWithErrorCalled).toEventually(beTrue())
-        expect(spyDelegate.didFetchDataCalled).toEventually(beFalse())
+        expect(spyDelegate.didFetchDataCalled).to(beFalse())
     }
 }

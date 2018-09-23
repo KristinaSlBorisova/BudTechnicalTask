@@ -12,6 +12,7 @@
 		15391CC22156B6FD008D217E /* TransactionsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15391CC12156B6FD008D217E /* TransactionsListViewModelTests.swift */; };
 		15391CC42156D37C008D217E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15391CC32156D37C008D217E /* Localizable.strings */; };
 		15391CC62156D505008D217E /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15391CC52156D505008D217E /* Server.swift */; };
+		15391CC921577F07008D217E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15391CC821577F07008D217E /* AppCoordinator.swift */; };
 		15D4A6732154F166005DFBEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D4A6722154F166005DFBEE /* AppDelegate.swift */; };
 		15D4A67A2154F168005DFBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D4A6792154F168005DFBEE /* Assets.xcassets */; };
 		15D4A67D2154F168005DFBEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D4A67B2154F168005DFBEE /* LaunchScreen.storyboard */; };
@@ -46,6 +47,7 @@
 		15391CC12156B6FD008D217E /* TransactionsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModelTests.swift; sourceTree = "<group>"; };
 		15391CC32156D37C008D217E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		15391CC52156D505008D217E /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		15391CC821577F07008D217E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		15D4A66F2154F166005DFBEE /* BudTechnicalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudTechnicalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D4A6722154F166005DFBEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15D4A6792154F168005DFBEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +109,30 @@
 			path = Caterogies;
 			sourceTree = "<group>";
 		};
+		15391CC721577EEB008D217E /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				15391CC821577F07008D217E /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		15391CCA2157C91B008D217E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				15D4A6A82155246A005DFBEE /* TransactionsListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		15391CCB2157C92B008D217E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15D4A6A621552449005DFBEE /* TransactionsListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		15D4A6662154F166005DFBEE = {
 			isa = PBXGroup;
 			children = (
@@ -131,13 +157,14 @@
 		15D4A6712154F166005DFBEE /* BudTechnicalTask */ = {
 			isa = PBXGroup;
 			children = (
+				15391CCB2157C92B008D217E /* ViewControllers */,
+				15391CCA2157C91B008D217E /* ViewModels */,
+				15391CC721577EEB008D217E /* Coordinators */,
 				15391CBE215685FA008D217E /* Caterogies */,
 				15391CBB21567462008D217E /* API */,
 				15D4A6A321551619005DFBEE /* Views */,
 				15D4A6942154F5DC005DFBEE /* Models */,
 				15D4A6722154F166005DFBEE /* AppDelegate.swift */,
-				15D4A6A621552449005DFBEE /* TransactionsListViewController.swift */,
-				15D4A6A82155246A005DFBEE /* TransactionsListViewModel.swift */,
 				15D4A6792154F168005DFBEE /* Assets.xcassets */,
 				15D4A67B2154F168005DFBEE /* LaunchScreen.storyboard */,
 				15D4A67E2154F168005DFBEE /* Info.plist */,
@@ -417,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15391CC921577F07008D217E /* AppCoordinator.swift in Sources */,
 				15391CC62156D505008D217E /* Server.swift in Sources */,
 				15D4A69C2154FD3C005DFBEE /* Amount.swift in Sources */,
 				15D4A6A721552449005DFBEE /* TransactionsListViewController.swift in Sources */,

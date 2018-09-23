@@ -33,7 +33,8 @@ extension UIImageView {
         }
         
         if let url = URL(string: URLString) {
-            self.computedDataTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            self.computedDataTask = URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
+                guard let `self` = self else { return }
                 if error != nil {
                     print("Can't download image from URL: \(String(describing: error))")
                     return

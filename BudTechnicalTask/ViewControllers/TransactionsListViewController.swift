@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ТransactionsListViewController: UIViewController, TransactionsListViewModelDelegate, UITableViewDataSource {
+final class ТransactionsListViewController: UIViewController, TransactionsListViewModelDelegate, UITableViewDataSource {
     
     private var viewModel: TransactionsListViewModelProtocol
     
@@ -27,6 +27,8 @@ class ТransactionsListViewController: UIViewController, TransactionsListViewMod
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
+        
+        self.navigationItem.title = NSLocalizedString("TransactionContollerNavigationTitle", comment: "")
         
         self.view.addSubview(self.loadingSpinner)
         self.view.addSubview(self.tableView)
@@ -69,7 +71,7 @@ class ТransactionsListViewController: UIViewController, TransactionsListViewMod
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.transactions.count
+        return self.viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +80,7 @@ class ТransactionsListViewController: UIViewController, TransactionsListViewMod
             fatalError("Unexpected Index Path")
         }
         
-        let transaction = self.viewModel.transactions[indexPath.row]
+        let transaction = self.viewModel.transactionAtIndex(indexPath.row)
         
         cell.setTitle(transaction.product.title)
         cell.setSubtitle(transaction.description)

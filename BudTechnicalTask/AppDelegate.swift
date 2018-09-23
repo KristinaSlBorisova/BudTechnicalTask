@@ -9,20 +9,19 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    private var appCoordinator: AppCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        let server = Server(baseURL: URL(string: "https://www.mocky.io/v2/5b33bdb43200008f0ad1e256")!)
-        let apiManager: TransactionManager = { TransactionsAPIManager(server: server) }()
-        let viewModel = TransactionsListViewModel(apiManager: apiManager)
-        let transactionsListViewController = ТransactionsListViewController(viewModel: viewModel)
-        self.window!.rootViewController = transactionsListViewController
-        self.window!.makeKeyAndVisible()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let appCoordinator = AppCoordinator(window: window)
+        self.window = window
+        self.appCoordinator = appCoordinator
+        appCoordinator.start()
+        
         return true
     }
     
