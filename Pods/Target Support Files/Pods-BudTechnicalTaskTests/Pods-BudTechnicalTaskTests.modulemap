@@ -1,0 +1,6 @@
+framework module Pods_BudTechnicalTaskTests {
+  umbrella header "Pods-BudTechnicalTaskTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
